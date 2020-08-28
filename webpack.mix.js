@@ -17,9 +17,12 @@ mix.js('resources/js/app.js', 'public/js')
         processCssUrls: false})
 
     .scripts([
-        'resources/assets/js/bundle.js'], 'public/js/front.js')
+        'resources/assets/js/bundle.js',
+        'resources/assets/fontawesome/js/all.js'],
+        'public/js/front.js')
 
     .styles([
-        'resources/assets/css/style.css'
+        'resources/assets/css/style.css',
+        'resources/assets/fontawesome/css/all.css'
     ], 'public/css/front.css')
 ;

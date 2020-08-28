@@ -36,7 +36,10 @@
                         <div class="tt-desktop-menu">
                             <nav>
                                 <ul>
-                                    <li><router-link v-for="item in items" :key="item.title" :to="item.to" v-if="item.show"><span>{{item.title}}</span></router-link></li>
+                                    <li>
+                                        <router-link v-for="item in items" :key="item.title" :to="item.to"
+                                                     v-if="item.show"><span>{{item.title}}</span></router-link>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -117,32 +120,43 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <button type="button" class="tt-view-all" data-toggle="modal" data-target="#modalAdvancedSearch">Advanced Search</button>
+                                    <button type="button" class="tt-view-all" data-toggle="modal"
+                                            data-target="#modalAdvancedSearch">Advanced Search
+                                    </button>
                                 </div>
                             </form>
                         </div>
                         <!-- /tt-search -->
                     </div>
                     <div class="col-auto ml-auto">
-                                            <div class="tt-account-btn">
-                                                <router-link v-if="! loggedIn" class="btn btn-primary" to="/login">Log in</router-link>
-                                                <router-link v-if="! loggedIn" to="/signup" class="btn btn-secondary">Sign up</router-link>
-<!--                                                <router-link v-if="loggedIn" to="/logout" class="btn btn-secondary">Logout</router-link>-->
+                        <div class="tt-account-btn">
+                            <router-link v-if="! loggedIn" class="btn btn-primary" to="/login">Log in</router-link>
+                            <router-link v-if="! loggedIn" to="/signup" class="btn btn-secondary">Sign up</router-link>
+                            <!--                                                <router-link v-if="loggedIn" to="/logout" class="btn btn-secondary">Logout</router-link>-->
 
-                                                <div v-if=" loggedIn" class="tt-user-info d-flex justify-content-center">
-                                                    <a href="#" class="tt-btn-icon">
-                                                        <i class="tt-icon"><svg><use xlink:href="#icon-notification"></use></svg></i>
-                                                    </a>
-                                                    <div class="dropdown tt-avatar-icon tt-size-md">
-                                                        <i class="dropbtn tt-icon"><svg><use xlink:href="#icon-ava-a"></use></svg></i>
-                                                        <div class="dropdown-content">
-                                                            <a href="#">Name</a>
-                                                            <a href="#">Account</a>
-                                                            <router-link to="/logout">Logout</router-link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            <div v-if=" loggedIn" class="tt-user-info d-flex justify-content-center">
+                                <a href="#" class="tt-btn-icon">
+                                    <i class="tt-icon">
+                                        <svg>
+                                            <use xlink:href="#icon-notification"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <div class="dropdown tt-avatar-icon tt-size-md">
+                                    <i class="dropbtn tt-icon">
+                                        <svg>
+                                            <use xlink:href="#icon-ava-a"></use>
+                                        </svg>
+                                    </i>
+                                    <div class="dropdown-content">
+                                        <a href="#">Name</a>
+                                        <a href="#">Account</a>
+                                        <router-link to="/logout">Logout</router-link>
+                                    </div>
+                                </div>
+                                <p>4ertgyhuji</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -153,8 +167,9 @@
 <script>
     export default {
         name: "ToolBar",
-        data(){
-            return{
+        data() {
+            return {
+                //user: {},
                 loggedIn: User.loggedIn(),
                 items: [
                     {title: 'Forum', to: '/', show: true},
@@ -165,9 +180,19 @@
             }
         },
         created() {
-            EventBus.$on('logout', () =>{
-                User.logout()
-            })
+            // this.getUser()
+            // EventBus.$on('logout', () => {
+            //     User.logout()
+            // })
+
+        },
+
+        methods: {
+            // getUser() {
+            //     axios.get('/api/user')
+            //         .then(res => this.user = res.data.data)
+            //         .catch(error => console.log(error.response.data))
+            // }
         }
     }
 </script>

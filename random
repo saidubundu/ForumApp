@@ -1,0 +1,1 @@
+<question  v-for="question in questions" :key="question.path" :data="question"></question>

@@ -7,12 +7,14 @@ import Forum from "../components/forum/Forum";
 import Signup from "../components/Auth/Signup";
 import CreateQuestion from "../components/forum/CreateQuestion";
 import Logout from "../components/Auth/Logout";
+import ReadQuestion from "../components/forum/ReadQuestion";
 
 const routes = [
     { path: '/login', component: Login, name: 'login' },
     { path: '/logout', component: Logout },
     { path: '/signup', component: Signup },
     { path: '/', component: Forum, name: 'forum' },
+
     { path: '/create', component: CreateQuestion,
     beforeEnter:(to, form, next)=>{
         axios.get('/api/user')
@@ -22,9 +24,9 @@ const routes = [
             })
     }
     },
-
     //single question
-    //{ path: '/question/:slug', component: read , name: 'read' },
+    {path: '/question/:slug', component: ReadQuestion, name: 'read'},
+
 
 
 ]

@@ -27,6 +27,7 @@ Vue.component('app-home', require('./components/AppHome').default);
 Vue.component('tool-bar', require('./components/ToolBar').default);
 Vue.component('login', require('./components/Auth/Login').default);
 Vue.component('forum', require('./components/forum/Forum').default);
+Vue.component('read-question', require('./components/forum/ReadQuestion').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
