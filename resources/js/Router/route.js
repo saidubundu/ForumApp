@@ -8,6 +8,7 @@ import Signup from "../components/Auth/Signup";
 import CreateQuestion from "../components/forum/CreateQuestion";
 import Logout from "../components/Auth/Logout";
 import ReadQuestion from "../components/forum/ReadQuestion";
+import Category from "../components/category/Category";
 
 const routes = [
     { path: '/login', component: Login, name: 'login' },
@@ -26,6 +27,9 @@ const routes = [
     },
     //single question
     {path: '/question/:slug', component: ReadQuestion, name: 'read'},
+
+    //categories
+    {path: '/category', component: Category}
 
 
 

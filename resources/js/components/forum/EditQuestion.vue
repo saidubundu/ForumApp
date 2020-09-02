@@ -110,12 +110,14 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-auto ml-md-6">
-                                    <button type="submit" class="btn btn-secondary btn-width-lg">Cancel </button>
+                                <div class="col-md-10">
+                                    <button type="submit" class="btn btn-primary btn-width-lg">Cancel </button>
                                 </div>
-                                <div class="col-auto ml-md-6 pull-right">
-                                    <button type="submit" class="btn btn-secondary btn-width-lg">Create Post</button>
+
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-success btn-width-lg">Update Post</button>
                                 </div>
+
                             </div>
                         </div>
                     </form>

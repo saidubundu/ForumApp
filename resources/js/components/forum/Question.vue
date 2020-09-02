@@ -1,8 +1,8 @@
 <template>
-    <div class="tt-item">
+    <div class="tt-item mt-2">
         <div class="tt-col-avatar">
             <svg class="tt-icon">
-                <use xlink:href="#icon-ava-k"></use>
+                <use :xlink:href="classes"></use>
             </svg>
         </div>
         <div class="tt-col-description">
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="tt-col-category"><span class="tt-color05 tt-badge">{{data.category}}</span></div>
+        <div class="tt-col-category"><span class="tt-color06 tt-badge">{{data.category}}</span></div>
         <div class="tt-col-value hide-mobile">985</div>
         <div class="tt-col-value tt-color-select hide-mobile">502</div>
         <div class="tt-col-value hide-mobile">15.1k</div>
@@ -36,7 +36,17 @@
 <script>
     export default {
         name: "Question",
-        props:['data']
+        props:['data'],
+        data(){
+            return {
+                user:{}
+            }
+        },
+        computed:{
+            classes(){
+                return '#icon-ava-' + this.data.user[0].toLowerCase()
+            }
+        },
     }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
+
     <div class="tt-single-topic">
-        <div class="tt-item-header">
+        <div class="tt-item-header pt-noborder">
             <div class="tt-item-info info-top">
                 <div class="tt-avatar-icon">
                     <i class="tt-icon">
@@ -20,23 +21,12 @@
                     </i>{{data.created}}
                 </a>
             </div>
-            <h3 class="tt-item-title">
-                <a href="#">{{data.title}}</a>
-            </h3>
-            <div class="tt-item-tag">
-                <ul class="tt-list-badge">
-                    <li><a href="#"><span class="tt-color03 tt-badge">exchange</span></a></li>
-                    <li><a href="#"><span class="tt-badge">themeforest</span></a></li>
-                    <li><a href="#"><span class="tt-badge">elements</span></a></li>
-                </ul>
-            </div>
         </div>
-        <div class="tt-item-description">
-
-            <p>
-                {{data.body}}
-            </p>
-
+        <div :reply="data" v-if="editing" class="tt-item-description">
+            <edit-reply :reply="data"></edit-reply>
+        </div>
+        <div v-else class="tt-item-description">
+            {{data.reply}}
         </div>
         <div class="tt-item-info info-bottom">
             <a href="#" class="tt-icon-btn">
@@ -64,48 +54,71 @@
                 <span class="tt-text">12</span>
             </a>
             <div class="col-separator"></div>
-            <div v-if="own">
-                <button @click="edit" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="tt-icon">
-                        <svg>
-                            <use xlink:href="#icon-pencil"></use>
-                        </svg>
-                    </i>
-                </button>
+            <div v-if="!editing">
+                <div v-if="own">
+                    <button @click="edit" class="tt-icon-btn tt-hover-02 tt-small-indent">
+                        <i class="tt-icon">
+                            <svg>
+                                <use xlink:href="#icon-pencil"></use>
+                            </svg>
+                        </i>
+                    </button>
 
-                <button @click="destroy" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="fa fa-trash"></i>
-                </button>
+                    <button @click="destroy" class="tt-icon-btn tt-hover-02 tt-small-indent">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
+
 </template>
 
 <script>
+    import EditReply from "./EditReply";
     export default {
-        props: ['data'],
-        name: "ShowQuestion",
-
+        name: "Reply",
+        components: {EditReply},
+        props: ['data', 'index'],
         data() {
             return {
-                own: User.own(this.data.user_id)
+                editing: false,
+                beforeEditReplyBody: ''
             }
         },
 
-        computed:{
-            classes(){
+        computed: {
+            classes() {
                 return '#icon-ava-' + this.data.user[0].toLowerCase()
+            },
+
+            own() {
+                return User.own(this.data.user_id)
             }
+        },
+
+        created(){
+            this.listen()
         },
 
         methods: {
-            destroy() {
-                axios.delete(`/api/question/${this.data.slug}`)
-                    .then(res => this.$router.push('/'))
-                    .catch(error => console.log(error.response.data))
+            destroy(){
+                EventBus.$emit('deleteReply', this.index)
             },
             edit() {
-                EventBus.$emit('startEditing')
+                this.editing = true
+                this.beforeEditReplyBody = this.data.reply
+            },
+
+            listen(){
+                EventBus.$on('cancelEditing', (reply) =>{
+                    this.editing = false
+                    if(reply !== this.data.reply){
+                        this.data.reply = this.beforeEditReplyBody
+                        this.beforeEditReplyBody = ''
+                    }
+                })
             }
         }
     }

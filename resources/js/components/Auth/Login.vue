@@ -4,8 +4,8 @@
         <main id="tt-pageContent" class="tt-offset-none">
             <div class="container">
                 <div class="tt-loginpages-wrapper">
-                    <div class="tt-loginpages">
-                        <a href="index.html" class="tt-block-title">
+                    <div class="tt-loginpages" >
+                        <router-link to="/" class="tt-block-title">
                             <img src="images/logo.png" alt="">
                             <div class="tt-title">
                                 Welcome to Selp Forum
@@ -13,7 +13,7 @@
                             <div class="tt-description">
                                 Log into your account to unlock true power of community.
                             </div>
-                        </a>
+                        </router-link>
                         <form class="form-default" @submit.prevent="login">
                             <div class="form-group">
                                 <label for="loginUserEmail">Email</label>

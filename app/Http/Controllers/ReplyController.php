@@ -82,7 +82,7 @@ class ReplyController extends Controller
     {
         //
         $reply->update($request->all());
-        return response('Updated', Response::HTTP_ACCEPTED);
+        return response(['reply'=> new ReplyResource($reply)], Response::HTTP_ACCEPTED);
     }
 
     /**

@@ -6,15 +6,17 @@
             <div class="container">
                 <div class="tt-loginpages-wrapper">
                     <div class="tt-loginpages">
-                        <a href="index.html" class="tt-block-title">
+                        <router-link to="/"  class="tt-block-title">
+
                             <img src="images/logo.png" alt="">
                             <div class="tt-title">
-                                Welcome to Forum19
+                                Welcome to Selp Forum
                             </div>
                             <div class="tt-description">
                                 Join the forum to unlock true power of community.
                             </div>
-                        </a>
+
+                        </router-link>
                         <form class="form-default" @submit.prevent="signup">
                             <div class="form-group">
                                 <label for="loginUserName">Username</label>
@@ -39,7 +41,7 @@
                             <p>Already have an account? <router-link to="/login">Login here</router-link></p>
                             <div class="tt-notes">
                                 By signing up, signing in or continuing, I agree to
-                                Forum19’s <a href="#" class="tt-underline">Terms of Use</a> and <a href="#" class="tt-underline">Privacy Policy.</a>
+                                Selp Forum’s <a href="#" class="tt-underline">Terms of Use</a> and <a href="#" class="tt-underline">Privacy Policy.</a>
                             </div>
                         </form>
                     </div>
