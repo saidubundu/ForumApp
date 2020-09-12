@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <main id="tt-pageContent">
-            <div class="container">
+    <main id="tt-pageContent" class="tt-offset-small">
+        <div class="container">
+        <br>
                 <div class="tt-wrapper-inner">
                     <h1 class="tt-title-border">
                         Create New Topic
@@ -17,81 +17,9 @@
                         </div>
                         <div class="pt-editor">
                             <h6 class="pt-title">Topic Body</h6>
-                            <div class="pt-row">
-                                <div class="col-left">
-                                    <ul class="pt-edit-btn">
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-quote"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-bold"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-italic"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-share_topic"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-blockquote"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-performatted"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li class="hr"></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-upload_files"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-bullet_list"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-heading"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-horizontal_line"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-emoticon"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-settings"></use>
-                                            </svg>
-                                        </button></li>
-                                        <li><button type="button" class="btn-icon">
-                                            <svg class="tt-icon">
-                                                <use xlink:href="#icon-color_picker"></use>
-                                            </svg>
-                                        </button></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea v-model="form.body" name="message" class="form-control" rows="5" placeholder="Lets get started"></textarea>
-                            </div>
+
+                               <vue-simplemde v-model="form.body" ref="markdownEditor" />
+
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -117,14 +45,15 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </main>
     </div>
+    </main>
 </template>
 
 <script>
+    import VueSimplemde from 'vue-simplemde';
     export default {
         name: "CreateQuestion",
+        components: {VueSimplemde},
         data(){
             return{
                form:{
@@ -148,10 +77,12 @@
                 .then(res => this.$router.push(res.data.path))
                 .catch(error => this.errors = error.response.data.error)
             }
-        }
+        },
+
+
     }
 </script>
 
 <style scoped>
-
+    @import '~simplemde/dist/simplemde.min.css';
 </style>

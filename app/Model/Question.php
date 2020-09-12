@@ -44,4 +44,12 @@ class Question extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function scopeSearch($query, $q)
+    {
+        if ($q == null) return $query;
+        return $query
+            ->where('title', 'LIKE', "${$q}%")
+            ->orWhere('body', 'LIKE', "${$q}%");
+    }
 }

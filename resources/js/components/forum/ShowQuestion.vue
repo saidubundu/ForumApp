@@ -65,17 +65,8 @@
             </a>
             <div class="col-separator"></div>
             <div v-if="own">
-                <button @click="edit" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="tt-icon">
-                        <svg>
-                            <use xlink:href="#icon-pencil"></use>
-                        </svg>
-                    </i>
-                </button>
-
-                <button @click="destroy" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="fa fa-trash"></i>
-                </button>
+                <b-icon @click="edit" v-b-tooltip.hover target="Create"  icon="pencil-square" variant="info" font-scale="1.5"></b-icon>
+                <b-icon @click="destroy" icon="trash-fill" style="color: #EF5350" font-scale="1.5"></b-icon>
             </div>
         </div>
     </div>
@@ -88,7 +79,8 @@
 
         data() {
             return {
-                own: User.own(this.data.user_id)
+                own: User.own(this.data.user_id),
+                replyCount: this.data.reply_count
             }
         },
 
@@ -98,7 +90,31 @@
             }
         },
 
+        created() {
+            EventBus.$on('createReply', () => {
+                this.replyCount ++
+            });
+
+            Echo.private('App.User.' + User.id())
+                .notification((notification) => {
+                    this.replyCount ++
+                });
+
+            EventBus.$on('deleteReply', () => {
+                this.replyCount --
+            });
+
+            Echo.channel('deleteReplyChannel')
+                .listen('DeleteReplyEvent', (e) => {
+                    this.replyCount --
+                })
+        },
+
         methods: {
+            handleHover(hovered) {
+                this.isHovered = hovered
+            },
+
             destroy() {
                 axios.delete(`/api/question/${this.data.slug}`)
                     .then(res => this.$router.push('/'))

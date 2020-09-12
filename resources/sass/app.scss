@@ -3,6 +3,11 @@
 
 // Variables
 @import 'variables';
+@import '~vuetify/dist/vuetify.min.css';
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+

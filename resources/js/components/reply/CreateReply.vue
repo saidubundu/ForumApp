@@ -117,7 +117,9 @@
                 </div>
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-secondary btn-width-lg" @click="submit">Reply</button>
+                <b-button v-if="loggedIn" type="submit" class="btn btn-secondary btn-width-lg" @click="submit">Reply</b-button>
+
+                <button v-else disabled type="submit" class="btn btn-disabled btn-width-lg">Reply</button>
             </div>
         </div>
     </div>
@@ -128,11 +130,13 @@
         name: "CreateReply",
         props: ['questionSlug'],
 
+
         data(){
             return{
                 form:{
                     body:null
-                }
+                },
+                loggedIn: User.loggedIn(),
             }
         },
 

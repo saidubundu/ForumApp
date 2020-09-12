@@ -27,7 +27,7 @@
         </div>
         <div class="tt-col-category"><span class="tt-color06 tt-badge">{{data.category}}</span></div>
         <div class="tt-col-value hide-mobile">985</div>
-        <div class="tt-col-value tt-color-select hide-mobile">502</div>
+        <div class="tt-col-value tt-color-select hide-mobile">{{replyCount}}</div>
         <div class="tt-col-value hide-mobile">15.1k</div>
         <div class="tt-col-value hide-mobile">1h</div>
     </div>
@@ -39,7 +39,8 @@
         props:['data'],
         data(){
             return {
-                user:{}
+                user:{},
+
             }
         },
         computed:{

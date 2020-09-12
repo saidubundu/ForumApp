@@ -14,7 +14,7 @@ class User {
 
         if (Token.isValid(access_token)) {
             AppStorage.store(username, access_token)
-            window.location = '/'
+            window.location = '/forum'
         }
     }
 
@@ -22,7 +22,7 @@ class User {
         const storedToken = AppStorage.getToken();
 
         if (storedToken){
-            return Token.isValid(storedToken) ? true : false
+            return Token.isValid(storedToken) ? true : this.logout()
         }
 
         return false
@@ -35,7 +35,7 @@ class User {
 
     logout(){
         AppStorage.clear()
-        window.location = '/'
+        window.location = '/forum'
     }
 
     name(){
@@ -53,6 +53,10 @@ class User {
 
     own(id){
         return this.id() === id
+    }
+
+    admin(){
+        return this.id === 13
     }
 }
 

@@ -22,8 +22,8 @@ try {
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-const token = `Bearer ${localStorage.getItem('token')}`;
-window.axios.defaults.headers.common['Authorization'] = token;
+const JWTtoken = `Bearer ${localStorage.getItem('token')}`;
+window.axios.defaults.headers.common['Authorization'] = JWTtoken;
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -31,13 +31,18 @@ window.axios.defaults.headers.common['Authorization'] = token;
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo';
+import Echo from 'laravel-echo';
 
-// window.Pusher = require('pusher-js');
+window.Pusher = require('pusher-js');
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: "1a068acbe03888c2c53e",
+    cluster: "eu",
+    forceTLS: true,
+    auth: {
+        headers:{
+            Authorization: JWTtoken
+        }
+    }
+});

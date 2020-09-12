@@ -7,10 +7,28 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-import User from './Helpers/User'
-window.User = User
+import Vue from 'vue'
+import VueSimplemde from 'vue-simplemde'
+import 'simplemde/dist/simplemde.min.css'
 
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
+
+Vue.use(Vuetify)
+
+Vue.component('vue-simplemde', VueSimplemde)
+import User from './Helpers/User'
+import Exception from "./Helpers/Exception";
+window.Exception  = Exception
+window.User = User
 window.EventBus = new Vue();
+
+
+
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -37,5 +55,6 @@ Vue.component('read-question', require('./components/forum/ReadQuestion').defaul
 import router from './Router/route'
 const app = new Vue({
     el: '#app',
+    vuetify: new Vuetify(),
     router
 });

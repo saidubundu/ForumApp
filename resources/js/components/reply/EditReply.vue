@@ -107,14 +107,11 @@
         </div>
         <div class="pt-row">
             <div class="col-auto">
-                <button @click="cancel" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="fa fa-times-circle"></i>
-                </button>
+                <b-icon @click="cancel" icon="x-circle-fill" variant="secondary" font-scale="1.5"></b-icon>
+
             </div>
             <div class="col-auto">
-                <button @click="update" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="fa fa-save"></i>
-                </button>
+                <b-icon @click="update" icon="check-circle-fill" variant="success" font-scale="1.5"></b-icon>
             </div>
         </div>
     </div>

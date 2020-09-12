@@ -1,6 +1,6 @@
 <template>
-
-    <div class="tt-single-topic">
+    <div class="tt-item">
+        <div class="tt-single-topic">
         <div class="tt-item-header pt-noborder">
             <div class="tt-item-info info-top">
                 <div class="tt-avatar-icon">
@@ -45,41 +45,26 @@
                 </i>
                 <span class="tt-text">39</span>
             </a>
-            <a href="#" class="tt-icon-btn">
-                <i class="tt-icon">
-                    <svg>
-                        <use xlink:href="#icon-favorite"></use>
-                    </svg>
-                </i>
-                <span class="tt-text">12</span>
-            </a>
+           <like :content="data"></like>
             <div class="col-separator"></div>
             <div v-if="!editing">
                 <div v-if="own">
-                    <button @click="edit" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                        <i class="tt-icon">
-                            <svg>
-                                <use xlink:href="#icon-pencil"></use>
-                            </svg>
-                        </i>
-                    </button>
-
-                    <button @click="destroy" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                        <i class="fa fa-trash"></i>
-                    </button>
+                    <b-icon @click="edit" icon="pencil-square" variant="info" font-scale="1.5"></b-icon>
+                    <b-icon @click="destroy" icon="trash-fill" style="color: #EF5350" font-scale="1.5"></b-icon>
                 </div>
             </div>
         </div>
     </div>
-
-
+    </div>
 </template>
 
 <script>
     import EditReply from "./EditReply";
+    import Like from "../votes/Like";
+
     export default {
         name: "Reply",
-        components: {EditReply},
+        components: {Like, EditReply},
         props: ['data', 'index'],
         data() {
             return {
@@ -98,12 +83,12 @@
             }
         },
 
-        created(){
+        created() {
             this.listen()
         },
 
         methods: {
-            destroy(){
+            destroy() {
                 EventBus.$emit('deleteReply', this.index)
             },
             edit() {
@@ -111,10 +96,10 @@
                 this.beforeEditReplyBody = this.data.reply
             },
 
-            listen(){
-                EventBus.$on('cancelEditing', (reply) =>{
+            listen() {
+                EventBus.$on('cancelEditing', (reply) => {
                     this.editing = false
-                    if(reply !== this.data.reply){
+                    if (reply !== this.data.reply) {
                         this.data.reply = this.beforeEditReplyBody
                         this.beforeEditReplyBody = ''
                     }

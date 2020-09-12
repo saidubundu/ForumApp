@@ -1,9 +1,8 @@
 <template>
+    <main id="tt-pageContent" class="tt-offset-small">
+        <div class="container">
     <div>
-        <br>
-        <main id="tt-pageContent" class="tt-offset-none">
-            <div class="container">
-                <div class="tt-loginpages-wrapper">
+        <div class="tt-loginpages-wrapper">
                     <div class="tt-loginpages" >
                         <router-link to="/" class="tt-block-title">
                             <img src="images/logo.png" alt="">
@@ -53,9 +52,9 @@
                         </form>
                     </div>
                 </div>
-            </div>
-        </main>
     </div>
+        </div>
+    </main>
 </template>
 
 <script>

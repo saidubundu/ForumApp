@@ -129,6 +129,10 @@
                             </form>
                         </div>
                         <!-- /tt-search -->
+
+                    </div>
+                    <div class="col-auto ml-auto">
+                        <app-notification v-if="loggedIn"></app-notification>
                     </div>
                     <div class="col-auto ml-auto">
                         <div class="tt-account-btn">
@@ -137,26 +141,7 @@
                             <!--                                                <router-link v-if="loggedIn" to="/logout" class="btn btn-secondary">Logout</router-link>-->
 
                             <div v-if=" loggedIn" class="tt-user-info d-flex justify-content-center">
-                                <a href="#" class="tt-btn-icon">
-                                    <i class="tt-icon">
-                                        <svg>
-                                            <use xlink:href="#icon-notification"></use>
-                                        </svg>
-                                    </i>
-                                </a>
-                                <div class="dropdown tt-avatar-icon tt-size-md">
-                                    <i class="dropbtn tt-icon">
-                                        <svg>
-                                            <use xlink:href="#icon-ava-a"></use>
-                                        </svg>
-                                    </i>
-                                    <div class="dropdown-content">
-                                        <a href="#">Name</a>
-                                        <a href="#">Account</a>
-                                        <router-link to="/logout">Logout</router-link>
-                                    </div>
-                                </div>
-                                <p>4ertgyhuji</p>
+                               <settings></settings>
                             </div>
                         </div>
                     </div>
@@ -167,34 +152,21 @@
 </template>
 
 <script>
+    import AppNotification from "./votes/AppNotification";
+    import Settings from "./Settings";
     export default {
         name: "ToolBar",
+        components: {Settings, AppNotification},
         data() {
             return {
-                //user: {},
                 loggedIn: User.loggedIn(),
                 items: [
-                    {title: 'Forum', to: '/', show: true},
+                    {title: 'Forum', to: '/forum', show: true},
                     {title: 'Categories', to: '/category', show: true},
                     {title: 'Ask', to: '/create', show: User.loggedIn()},
                     {title: 'About', to: '/about', show: true},
                 ],
             }
-        },
-        created() {
-            // this.getUser()
-            // EventBus.$on('logout', () => {
-            //     User.logout()
-            // })
-
-        },
-
-        methods: {
-            // getUser() {
-            //     axios.get('/api/user')
-            //         .then(res => this.user = res.data.data)
-            //         .catch(error => console.log(error.response.data))
-            // }
         }
     }
 </script>

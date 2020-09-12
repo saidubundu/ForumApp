@@ -15,10 +15,10 @@ class AuthController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('JWT', ['except' => ['login']]);
-//    }
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['login', 'signup']]);
+    }
 
     /**
      * Get a JWT via given credentials.
