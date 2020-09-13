@@ -12,8 +12,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <meta name="csrf-token" content="{{csrf_token()}}">
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <link rel="stylesheet" href="{{asset('css/front.css')}}">
+        <link rel="stylesheet" href="{{secure_asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{secure_asset('css/front.css')}}">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
     </head>
@@ -23,8 +23,8 @@
         <app-home></app-home>
 
     </div>
-    <script src="{{asset('js/app.js')}}"></script>
-    <script src="{{asset('js/front.js')}}"></script>
+    <script src="{{secure_asset('js/app.js')}}"></script>
+    <script src="{{secure_asset('js/front.js')}}"></script>
     <svg width="0" height="0" class="hidden">
         <symbol aria-hidden="true" data-prefix="fab" data-icon="facebook-f" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264 512" id="facebook-f-brands">
             <path fill="currentColor" d="M215.8 85H264V3.6C255.7 2.5 227.1 0 193.8 0 124.3 0 76.7 42.4 76.7 120.3V192H0v91h76.7v229h94V283h73.6l11.7-91h-85.3v-62.7c0-26.3 7.3-44.3 45.1-44.3z"></path>
