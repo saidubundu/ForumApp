@@ -4,9 +4,9 @@
 <div class="opening">
     <h1 class="opening-h1">SELP FORUM</h1>
     <h2 class="opening-h2">The Learning Community Portal.</h2>
-    <p class="opening-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis exercitationem inventore
-        <br> maxime nesciunt nobis
-        placeat porro reiciendis suscipit vel!</p>
+<!--    <p class="opening-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis exercitationem inventore-->
+<!--        <br> maxime nesciunt nobis-->
+<!--        placeat porro reiciendis suscipit vel!</p>-->
     <div class="btns">
         <b-button class="btn-1" size="lg" variant="success">Join the community</b-button>
         <b-button class="btn-2" size="lg" variant="outline-success">visit the forum</b-button>
