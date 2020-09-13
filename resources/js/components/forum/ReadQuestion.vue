@@ -109,7 +109,7 @@
                 </div>
                 <question-replies :question="question"></question-replies>
             </div>
-            </div>
+
             <div class="tt-wrapper-inner">
                 <h4 class="tt-title-separator"><span>You’ve reached the end of replies</span></h4>
             </div>
@@ -130,7 +130,7 @@
                 </div>
             </div>
             <div class="tt-wrapper-inner">
-                <create-reply :questionSlug="question.slug"></create-reply>
+                <create-reply v-if="loggedIn" :questionSlug="question.slug"></create-reply>
             </div>
 <!--            <div class="tt-topic-list tt-ofset-30">-->
 <!--                <div class="tt-list-search">-->
@@ -316,6 +316,7 @@
 <!--                    </button>-->
 <!--                </div>-->
 <!--            </div>-->
+        </div>
         </div>
     </main>
 </template>

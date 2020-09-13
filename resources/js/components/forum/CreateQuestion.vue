@@ -6,7 +6,7 @@
                     <h1 class="tt-title-border">
                         Create New Topic
                     </h1>
-                    <form class="form-default form-create-topic">
+                    <form class="form-default form-create-topic" @submit.prevent="create">
                         <div class="form-group">
                             <label for="inputTopicTitle">Topic Title</label>
                             <div class="tt-value-wrapper">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-auto ml-md-auto">
-                                    <b-button :disabled="disabled" type="submit" size="lg" class="btn btn-secondary btn-width-lg" @submit.prevent="create">Create Question</b-button>
+                                    <b-button :disabled="disabled" type="submit" size="lg" class="btn btn-secondary btn-width-lg" >Create Question</b-button>
 
                                 </div>
                             </div>

@@ -1,5 +1,4 @@
 <template>
-    <div>
         <main id="tt-pageContent">
             <div class="container">
                 <div class="tt-wrapper-inner">
@@ -124,7 +123,6 @@
                 </div>
             </div>
         </main>
-    </div>
 </template>
 
 <script>

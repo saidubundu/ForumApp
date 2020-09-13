@@ -268,7 +268,7 @@
 
                     <div class="col-lg-3"></div>
                 </div>
-            <h6> &copy; 2020 PeekTower.org - All Right Reserved</h6>
+            <h6> &copy; 2020 SELP FORUM - All Right Reserved</h6>
             </div>
 
 
