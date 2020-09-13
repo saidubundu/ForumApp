@@ -229,7 +229,7 @@
       <workItem from="1599733578491" duration="29121000" />
       <workItem from="1599816403719" duration="25093000" />
       <workItem from="1599949385915" duration="15225000" />
-      <workItem from="1599965423496" duration="5147000" />
+      <workItem from="1599965423496" duration="5695000" />
     </task>
     <servers />
   </component>
@@ -240,6 +240,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="233" y="19" key="#Notifications" timestamp="1599970806851">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="233" y="19" key="#Notifications/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1599970806851" />
     <state x="2644" y="344" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598514973768">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

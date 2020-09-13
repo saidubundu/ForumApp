@@ -42,7 +42,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-auto ml-md-auto">
-                                    <b-button :disabled="disabled" size="lg" class="btn btn-secondary btn-width-lg">Create Question</b-button>
+                                    <b-button :disabled="disabled" type="submit" size="lg" class="btn btn-secondary btn-width-lg">Create Question</b-button>
 
                                 </div>
                             </div>
