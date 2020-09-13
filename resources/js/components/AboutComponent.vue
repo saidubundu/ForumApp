@@ -29,6 +29,9 @@
                                     About Selp Forum
                                 </h2>
                                 Selp Forum is a community of creatives who come together to share ideas and help each other succeed.
+
+                            </div>
+                         >
                             <div class="tt-wrapper-inner tt-indent-top">
                                 <h4 class="tt-title">
                                     Contact Us
