@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18a06752-50a6-4680-8804-01c8cc3b5a5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="18a06752-50a6-4680-8804-01c8cc3b5a5b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,18 +159,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ForumApp\resources\js\components\Admin" />
+      <recent name="C:\xampp\htdocs\ForumApp\resources\js\components" />
+      <recent name="C:\xampp\htdocs\ForumApp\public\images" />
+      <recent name="C:\xampp\htdocs\ForumApp\resources\assets" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\ForumApp\public" />
       <recent name="C:\xampp\htdocs\ForumApp\resources\assets" />
       <recent name="C:\xampp\htdocs\ForumApp\resources\js\components" />
       <recent name="C:\xampp\htdocs\ForumApp\resources" />
       <recent name="C:\xampp\htdocs\ForumApp\resources\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\ForumApp\resources\js\components\Admin" />
-      <recent name="C:\xampp\htdocs\ForumApp\resources\js\components" />
-      <recent name="C:\xampp\htdocs\ForumApp\public\images" />
-      <recent name="C:\xampp\htdocs\ForumApp\resources\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -229,7 +227,7 @@
       <workItem from="1599733578491" duration="29121000" />
       <workItem from="1599816403719" duration="25093000" />
       <workItem from="1599949385915" duration="15225000" />
-      <workItem from="1599965423496" duration="5695000" />
+      <workItem from="1599965423496" duration="6123000" />
     </task>
     <servers />
   </component>
