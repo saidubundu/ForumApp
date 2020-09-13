@@ -16,20 +16,23 @@
 
                 </router-link>
                 <form class="form-default" @submit.prevent="signup">
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label for="loginUserName">Username</label>
                         <input type="text" v-model="form.name" name="name" class="form-control" id="loginUserName"
                                placeholder="azyrusmax">
+                        <span v-if="errors.name"  class="help-block" style="color: red">{{errors.name[0]}}</span>
                     </div>
                     <div class="form-group">
                         <label for="loginUserEmail">Email</label>
                         <input type="text" v-model="form.email" name="name" class="form-control" id="loginUserEmail"
                                placeholder="Sample@sample.com">
+                        <span v-if="errors.email"  class="help-block" style="color: red">{{errors.email[0]}}</span>
                     </div>
                     <div class="form-group">
                         <label for="loginUserPassword">Password</label>
                         <input type="password" v-model="form.password" name="name" class="form-control"
                                id="loginUserPassword" placeholder="************">
+                        <span v-if="errors.password"  class="help-block" style="color: red">{{errors.password[0]}}</span>
                     </div>
 
                     <div class="form-group">
@@ -66,7 +69,8 @@
                     email: null,
                     password: null,
                     password_confirmation: null
-                }
+                },
+                errors: {}
             }
         },
 

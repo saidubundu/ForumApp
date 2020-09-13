@@ -56,7 +56,8 @@
                 read: {},
                 unread: {},
                 unreadCount: 0,
-                variant: 'dark'
+                variant: 'dark',
+                sound: "http://soundbible.com/mp3/Air%20Plane%20Ding-SoundBible.com-496729130.mp3"
             }
         },
 
@@ -73,6 +74,7 @@
 
             Echo.private('App.User.' + User.id())
                 .notification((notification) => {
+                    this.playSound()
                     this.unread.unshift(notification)
                     this.unreadCount++
                 });
@@ -95,6 +97,10 @@
                     this.read.push(notification);
                     this.unreadCount--;
                 });
+            },
+            playSound(){
+                let alert = new Audio(this.sound)
+                alert.play()
             }
         }
     }

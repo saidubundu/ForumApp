@@ -13,7 +13,10 @@
                                 <input type="text" v-model="form.title" name="name" class="form-control" id="inputTopicTitle" placeholder="Subject of your topic">
                                 <span class="tt-value-input">99</span>
                             </div>
-                            <div class="tt-note">Describe your topic well, while keeping the subject as short as possible.</div>
+                            <b-form-invalid-feedback v-if="errors.title">
+                               {{errors.name[0]}}
+                            </b-form-invalid-feedback>
+                            <div v-else class="tt-note">Describe your topic well, while keeping the subject as short as possible.</div>
                         </div>
                         <div class="pt-editor">
                             <h6 class="pt-title">Topic Body</h6>
@@ -33,13 +36,14 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="inputTopicTags">Tags</label>
-                                        <input type="text" name="name" class="form-control" id="inputTopicTags" placeholder="Use comma to separate tags">
+                                        <input type="text" name="name" class="form-control" id="inputTopicTags" placeholder="Please leave this empty">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-auto ml-md-auto">
-                                    <button type="submit" class="btn btn-secondary btn-width-lg">Create Post</button>
+                                    <b-button :disabled="disabled" size="lg" class="btn btn-secondary btn-width-lg">Create Question</b-button>
+
                                 </div>
                             </div>
                         </div>
@@ -61,7 +65,13 @@
                    body:null,
                    category_id:null
                },
-                categories:{}
+                categories:{},
+                errors:{}
+            }
+        },
+        computed:{
+            disabled(){
+                return !(this.form.title && this.form.body && this.form.category_id)
             }
         },
 

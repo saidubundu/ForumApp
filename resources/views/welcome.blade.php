@@ -6,7 +6,7 @@
         <meta name="description" content="Selp forum">
         <meta name="author" content="Saidu Bundu Kamara">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <link rel="shortcut icon" href="{{asset('images/favicon_io/favicon-16x16.png')}}">
         <title>Selp Forum</title>
 
         <!-- Fonts -->

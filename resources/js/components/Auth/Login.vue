@@ -17,12 +17,12 @@
                             <div class="form-group">
                                 <label for="loginUserEmail">Email</label>
                                 <input type="email" v-model="form.email" name="name" class="form-control" id="loginUserEmail" placeholder="example@selp.com">
-                                <span class="text-danger" v-if="errors.email"><strong>{{errors.email[0]}}</strong> </span>
+                                <span v-if="error"  class="help-block" style="color: red">{{error}}</span>
                             </div>
                             <div class="form-group">
                                 <label for="loginUserPassword">Password</label>
                                 <input type="password" v-model="form.password" name="name" class="form-control" id="loginUserPassword" placeholder="************">
-                                <span class="text-danger" v-if="errors.password"><strong>{{errors.password[0]}}</strong> </span>
+
                             </div>
                             <div class="row">
                                 <div class="col">

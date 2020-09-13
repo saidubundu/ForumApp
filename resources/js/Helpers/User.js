@@ -5,7 +5,7 @@ class User {
     login(data){
         axios.post('/api/auth/login', data)
             .then(res => this.responseAfterLogin(res))
-            .catch(error => console.log(error.response.data))
+            .catch(error => error.response.data)
     }
 
     responseAfterLogin(res) {
@@ -56,7 +56,7 @@ class User {
     }
 
     admin(){
-        return this.id === 13
+        return this.id() === 11
     }
 }
 

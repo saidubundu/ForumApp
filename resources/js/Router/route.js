@@ -12,6 +12,7 @@ import Category from "../components/category/Category";
 import Setting from "../components/user/Setting";
 import parallex from "../components/parallex";
 import AboutComponent from "../components/AboutComponent";
+import AdminDashboard from "../components/Admin/AdminDashboard";
 
 const routes = [
     {path: '/', component: parallex},
@@ -35,7 +36,9 @@ const routes = [
     //categories
     {path: '/category', component: Category},
     {path: '/setting', component: Setting},
-    {path: '/about', component: AboutComponent}
+    {path: '/about', component: AboutComponent},
+
+    {path: '/addash', component: AdminDashboard, name: 'admin'}
 
 
 

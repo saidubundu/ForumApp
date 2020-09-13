@@ -165,6 +165,7 @@
                     {title: 'Categories', to: '/category', show: true},
                     {title: 'Ask', to: '/create', show: User.loggedIn()},
                     {title: 'About', to: '/about', show: true},
+                    {title: 'Admin', to: '/addash', show: User.admin()},
                 ],
             }
         }
