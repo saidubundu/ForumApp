@@ -2,10 +2,14 @@
 
 namespace App\Model;
 
+use Alexusmai\LaravelPurifier\Purifier;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Parsedown;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Question extends Model
+class Question extends Model implements Searchable
 {
     //
     protected $fillable = ['title', 'body', 'slug', 'category_id', 'user_id'];
@@ -18,6 +22,20 @@ class Question extends Model
         static::creating(function ($question){
             $question->slug = str_slug($question->title);
         });
+    }
+
+//    public function setBodyAttribute($value)
+//    {
+//        $this->attributes['body'] = purifier($value);
+//    }
+
+    public function getBodyHtmlAttribute()
+    {
+        return Purifier::clean($this->bodyHtml());
+    }
+
+    private function bodyHtml(){
+        return Parsedown::instance()->text($this->body);
     }
 
     public function getRouteKeyName()
@@ -45,11 +63,16 @@ class Question extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function scopeSearch($query, $q)
+
+    public function getSearchResult(): SearchResult
     {
-        if ($q == null) return $query;
-        return $query
-            ->where('title', 'LIKE', "${$q}%")
-            ->orWhere('body', 'LIKE', "${$q}%");
+        // TODO: Implement getSearchResult() method.
+        $url = route('question.show', $this->slug);
+
+        return new SearchResult(
+            $this,
+            $this->title,
+            $this->path
+        );
     }
 }

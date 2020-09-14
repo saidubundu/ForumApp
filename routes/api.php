@@ -37,6 +37,7 @@ Route::delete('/like/{reply}', 'LikeController@unLikeIt');
 Route::post('notifications', 'NotificationController@index');
 Route::post('markAsRead', 'NotificationController@markAsRead');
 Route::apiResource('/users', 'UserController');
+Route::get('search','SearchController@search');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

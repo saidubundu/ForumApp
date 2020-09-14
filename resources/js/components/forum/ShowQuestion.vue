@@ -33,9 +33,7 @@
         </div>
         <div class="tt-item-description">
 
-            <p>
-                {{data.body}}
-            </p>
+            <p v-html="body"></p>
 
         </div>
         <div class="tt-item-info info-bottom">
@@ -87,6 +85,9 @@
         computed:{
             classes(){
                 return '#icon-ava-' + this.data.user[0].toLowerCase()
+            },
+            body(){
+                return this.data.body
             }
         },
 
@@ -117,7 +118,7 @@
 
             destroy() {
                 axios.delete(`/api/question/${this.data.slug}`)
-                    .then(res => this.$router.push('/'))
+                    .then(res => this.$router.push('/forum'))
                     .catch(error => console.log(error.response.data))
             },
             edit() {

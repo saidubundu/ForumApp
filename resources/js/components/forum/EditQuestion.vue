@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea v-model="form.body" name="message" class="form-control" rows="5" placeholder="Lets get started"></textarea>
+                                <ckeditor :editor="editor" v-model="form.body" :config="editorConfig"></ckeditor>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
@@ -126,6 +126,7 @@
 </template>
 
 <script>
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
     export default {
         name: "EditQuestion",
         props: ['data'],
@@ -136,7 +137,11 @@
                     body:null,
                     category_id:null
                 },
-                categories:{}
+                categories:{},
+                editor: ClassicEditor,
+                editorConfig: {
+                    // The configuration of the rich-text editor.
+                }
             }
         },
         created() {

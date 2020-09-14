@@ -8,8 +8,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import Vue from 'vue'
-import VueSimplemde from 'vue-simplemde'
-import 'simplemde/dist/simplemde.min.css'
+import CKEditor from '@ckeditor/ckeditor5-vue';
+
+Vue.use( CKEditor );
+
+// import md from 'marked'
+// window.md = md;
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
@@ -19,7 +23,7 @@ Vue.use(IconsPlugin)
 
 Vue.use(Vuetify)
 
-Vue.component('vue-simplemde', VueSimplemde)
+
 import User from './Helpers/User'
 import Exception from "./Helpers/Exception";
 window.Exception  = Exception

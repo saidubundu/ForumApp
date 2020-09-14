@@ -13,7 +13,7 @@ class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('JWT', ['except' => ['index', 'show']]);
+        $this->middleware('JWT', ['except' => ['index', 'show', 'search']]);
     }
 
     /**
@@ -28,6 +28,13 @@ class QuestionController extends Controller
         if ($request->has('q')) $q = $request->query('q');
         $question = Question::latest()->get();
         return QuestionResource::collection($question);
+    }
+
+    public function search(Request $request)
+    {
+        $question = Question::where('title', 'LIKE', $request->keywords)->get();
+
+        return response()->json($question);
     }
 
     /**

@@ -21,7 +21,8 @@
                         <div class="pt-editor">
                             <h6 class="pt-title">Topic Body</h6>
 
-                               <vue-simplemde v-model="form.body" ref="markdownEditor" />
+<!--                               <vue-simplemde v-model="form.body" ref="markdownEditor" />-->
+                            <ckeditor :editor="editor" v-model="form.body" :config="editorConfig"></ckeditor>
 
                             <div class="row">
                                 <div class="col-md-4">
@@ -54,10 +55,9 @@
 </template>
 
 <script>
-    import VueSimplemde from 'vue-simplemde';
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
     export default {
         name: "CreateQuestion",
-        components: {VueSimplemde},
         data(){
             return{
                form:{
@@ -66,7 +66,11 @@
                    category_id:null
                },
                 categories:{},
-                errors:{}
+                errors:{},
+                editor: ClassicEditor,
+                editorConfig: {
+                    // The configuration of the rich-text editor.
+                }
             }
         },
         computed:{
@@ -94,5 +98,5 @@
 </script>
 
 <style scoped>
-    @import '~simplemde/dist/simplemde.min.css';
+
 </style>

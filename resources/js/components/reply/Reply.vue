@@ -25,8 +25,8 @@
         <div :reply="data" v-if="editing" class="tt-item-description">
             <edit-reply :reply="data"></edit-reply>
         </div>
-        <div v-else class="tt-item-description">
-            {{data.reply}}
+        <div v-else class="tt-item-description" v-html="body">
+
         </div>
         <div class="tt-item-info info-bottom">
             <a href="#" class="tt-icon-btn">
@@ -80,6 +80,9 @@
 
             own() {
                 return User.own(this.data.user_id)
+            },
+            body(){
+                return this.data.reply
             }
         },
 
