@@ -4,11 +4,10 @@
     <list default="true" id="18a06752-50a6-4680-8804-01c8cc3b5a5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/forum/CreateQuestion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/forum/CreateQuestion.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/forum/EditQuestion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/forum/EditQuestion.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/forum/Question.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/forum/Question.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/forum/ReadQuestion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/forum/ReadQuestion.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/parallex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/parallex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Helpers/Exception.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Helpers/Exception.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Helpers/Token.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Helpers/Token.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Auth/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +235,8 @@
       <workItem from="1599816403719" duration="25093000" />
       <workItem from="1599949385915" duration="15225000" />
       <workItem from="1599965423496" duration="6373000" />
-      <workItem from="1599995029110" duration="1805000" />
+      <workItem from="1599995029110" duration="3571000" />
+      <workItem from="1600081738726" duration="1390000" />
     </task>
     <servers />
   </component>

@@ -17,7 +17,6 @@
                             <div class="form-group">
                                 <label for="loginUserEmail">Email</label>
                                 <input type="email" v-model="form.email" name="name" class="form-control" id="loginUserEmail" placeholder="example@selp.com">
-                                <span v-if="error"  class="help-block" style="color: red">{{error}}</span>
                             </div>
                             <div class="form-group">
                                 <label for="loginUserPassword">Password</label>
@@ -66,7 +65,6 @@
                     email:null,
                     password:null
                 },
-                errors:[]
             }
         },
         methods:{

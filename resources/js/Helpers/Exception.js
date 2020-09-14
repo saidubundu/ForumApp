@@ -5,7 +5,7 @@ class Exception {
     }
 
     isExpired(error){
-        if (error === 'Token is invalid'){
+        if (error === 'Token is invalid' || 'Token is no provided'){
             User.logout()
         }
     }
