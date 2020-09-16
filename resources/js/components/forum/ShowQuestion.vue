@@ -63,8 +63,12 @@
             </a>
             <div class="col-separator"></div>
             <div v-if="own">
-                <b-icon @click="edit" v-b-tooltip.hover target="Create"  icon="pencil-square" variant="info" font-scale="1.5"></b-icon>
-                <b-icon @click="destroy" icon="trash-fill" style="color: #EF5350" font-scale="1.5"></b-icon>
+                <b-icon id="edit" @click="edit" v-b-tooltip.hover target="Create" icon="pencil-square" variant="info"
+                        font-scale="1.5">
+                </b-icon>
+                <b-tooltip target="edit" title="Edit question"></b-tooltip>
+                <b-icon id="delete" @click="destroy" icon="trash-fill" style="color: #EF5350" font-scale="1.5"></b-icon>
+                <b-tooltip target="delete" variant="danger" title="Delete question"></b-tooltip>
             </div>
         </div>
     </div>
@@ -82,32 +86,32 @@
             }
         },
 
-        computed:{
-            classes(){
+        computed: {
+            classes() {
                 return '#icon-ava-' + this.data.user[0].toLowerCase()
             },
-            body(){
+            body() {
                 return this.data.body
             }
         },
 
         created() {
             EventBus.$on('createReply', () => {
-                this.replyCount ++
+                this.replyCount++
             });
 
             Echo.private('App.User.' + User.id())
                 .notification((notification) => {
-                    this.replyCount ++
+                    this.replyCount++
                 });
 
             EventBus.$on('deleteReply', () => {
-                this.replyCount --
+                this.replyCount--
             });
 
             Echo.channel('deleteReplyChannel')
                 .listen('DeleteReplyEvent', (e) => {
-                    this.replyCount --
+                    this.replyCount--
                 })
         },
 
@@ -117,9 +121,37 @@
             },
 
             destroy() {
-                axios.delete(`/api/question/${this.data.slug}`)
-                    .then(res => this.$router.push('/forum'))
-                    .catch(error => console.log(error.response.data))
+                this.$toast.question('Are you sure about that?', "Confirm", {
+                    timeout: 20000,
+                    close: false,
+                    overlay: true,
+                    displayMode: 'once',
+                    id: 'question',
+                    zindex: 999,
+                    title: 'Hey',
+                    position: 'center',
+                    buttons: [
+                        ['<button><b>YES</b></button>', (instance, toast) => {
+                            axios.delete(`/api/question/${this.data.slug}`)
+                                .then(res => {
+                                    this.$router.push('/forum')
+                                    $(this.$el).fadeOut(500, () => {
+                                        this.$toast.success("Question deleted", "Success", {timeout: 3000});
+                                    })
+                                })
+                                .catch(error => console.log(error.response.data))
+
+                            instance.hide({transitionOut: 'fadeOut'}, toast, 'button');
+
+                        }, true],
+                        ['<button>NO</button>', function (instance, toast) {
+
+                            instance.hide({transitionOut: 'fadeOut'}, toast, 'button');
+
+                        }],
+                    ],
+                });
+
             },
             edit() {
                 EventBus.$emit('startEditing')

@@ -63,6 +63,12 @@ class Question extends Model implements Searchable
         return $this->belongsTo(Category::class);
     }
 
+    public function acceptBestAnswer(Reply $reply)
+    {
+        $this->best_reply_id = $reply->id;
+        $this->save();
+    }
+
 
     public function getSearchResult(): SearchResult
     {

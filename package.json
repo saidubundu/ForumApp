@@ -26,10 +26,13 @@
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^22.0.0",
         "@ckeditor/ckeditor5-vue": "^1.0.2",
+        "@popperjs/core": "^2.4.4",
         "bootstrap-vue": "^2.16.0",
+        "izitoast": "^1.4.0",
         "laravel-echo": "^1.8.1",
         "magnific-popup": "^1.1.0",
         "pusher-js": "^7.0.0",
+        "vue-izitoast": "^1.2.1",
         "vue-router": "^3.4.3",
         "vue-simplemde": "^1.1.2",
         "vuetify": "^2.3.10"

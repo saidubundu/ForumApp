@@ -26,9 +26,9 @@
                     <question v-if="questions" v-for="question in questions" :key="question.path" :data="question"></question>
 
                     <div class="tt-row-btn">
-                        <button type="button" class="btn-icon js-topiclist-showmore">
-                            <svg class="tt-icon">
-                                <use xlink:href="#icon-load_lore_icon"></use>
+                        <button type="button" class="btn-icon js-topiclist-showmore" v-show="moreExist">
+                            <svg class="tt-icon" @click="loadMore">
+                                <use  xlink:href="#icon-load_lore_icon"></use>
                             </svg>
                         </button>
                     </div>
@@ -45,7 +45,9 @@
         data(){
             return{
                 loading: false,
-                questions:{}
+                questions:{},
+                nextPage: 0,
+                moreExist: false
             }
         },
 
@@ -53,10 +55,23 @@
             this.loading = true;
             axios.get('api/question')
             .then(res =>{
-                this.loading = false
-                this.questions = res.data.data
+                this.loading = false;
+                this.questions = res.data.data;
+                if (res.data.meta.current_page < res.data.meta.last_page){
+                    this.moreExist = true
+                    this.nextPage = res.data.meta.current_page + 1
+                }
+                else{
+                    this.moreExist = false
+                }
             })
             .catch(error => console.log(error.response.data))
+        },
+
+        methods:{
+            loadMore(){
+                axios.get(`/api/question?page=${this.nextPage}`)
+            }
         }
     }
 </script>

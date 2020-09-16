@@ -160,6 +160,8 @@
             update(){
                 axios.patch(`/api/question/${this.data.slug}`, this.form)
                 .then(res => this.cancel())
+                window.scrollTo(0,0)
+                this.$toast.success("Question updated successfully", "Success", {timeout: 3000});
             }
         }
     }

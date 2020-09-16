@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\QuestionRequest;
 use App\Http\Resources\QuestionResource;
+use App\Http\Resources\UserResource;
 use App\Model\Question;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +15,7 @@ class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('JWT', ['except' => ['index', 'show', 'search']]);
+        $this->middleware('JWT', ['except' => ['index', 'show', 'search', 'user']]);
     }
 
     /**
@@ -24,9 +26,7 @@ class QuestionController extends Controller
     public function index(Request $request)
     {
         //
-        $q = null;
-        if ($request->has('q')) $q = $request->query('q');
-        $question = Question::latest()->get();
+        $question = Question::latest()->paginate(10);
         return QuestionResource::collection($question);
     }
 
@@ -93,6 +93,7 @@ class QuestionController extends Controller
     public function update(QuestionRequest $request, Question $question)
     {
         //
+//        $this->authorize('update', $question);
         $question->update($request->all());
         return response('updated', Response::HTTP_ACCEPTED);
     }
@@ -108,5 +109,10 @@ class QuestionController extends Controller
         //
         $question->delete();
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function user(User $user)
+    {
+        return new UserResource($user);
     }
 }

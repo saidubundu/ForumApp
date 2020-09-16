@@ -1,5 +1,5 @@
 <template>
-    <div class="tt-item">
+    <div class="tt-item tt-wrapper-success">
         <div class="tt-single-topic">
         <div class="tt-item-header pt-noborder">
             <div class="tt-item-info info-top">
@@ -12,6 +12,8 @@
                 </div>
                 <div class="tt-avatar-title">
                     <a href="#">{{data.user}}</a>
+<!--                    <b-badge class="tt-color13 tt-badge">best answer</b-badge>-->
+                    <span v-if="marked" class="tt-color13 tt-badge">best answer</span>
                 </div>
                 <a href="#" class="tt-info-time">
                     <i class="tt-icon">
@@ -29,28 +31,15 @@
 
         </div>
         <div class="tt-item-info info-bottom">
-            <a href="#" class="tt-icon-btn">
-                <i class="tt-icon">
-                    <svg>
-                        <use xlink:href="#icon-like"></use>
-                    </svg>
-                </i>
-                <span class="tt-text">671</span>
-            </a>
-            <a href="#" class="tt-icon-btn">
-                <i class="tt-icon">
-                    <svg>
-                        <use xlink:href="#icon-dislike"></use>
-                    </svg>
-                </i>
-                <span class="tt-text">39</span>
-            </a>
+            <mark-as-best v-if="questionOwner" :content="data"></mark-as-best>
            <like :content="data"></like>
             <div class="col-separator"></div>
             <div v-if="!editing">
                 <div v-if="own">
-                    <b-icon @click="edit" icon="pencil-square" variant="info" font-scale="1.5"></b-icon>
-                    <b-icon @click="destroy" icon="trash-fill" style="color: #EF5350" font-scale="1.5"></b-icon>
+                    <b-icon @click="edit" id="edit-reply" icon="pencil-square" variant="info" font-scale="1.5"></b-icon>
+                    <b-tooltip target="edit-reply" title="Edit reply"></b-tooltip>
+                    <b-icon @click="destroy" id="delete-reply" icon="trash-fill" style="color: #EF5350" font-scale="1.5"></b-icon>
+                    <b-tooltip target="delete-reply" variant="danger" title="Delete reply"></b-tooltip>
                 </div>
             </div>
         </div>
@@ -61,15 +50,17 @@
 <script>
     import EditReply from "./EditReply";
     import Like from "../votes/Like";
+    import MarkAsBest from "../votes/MarkAsBest";
 
     export default {
         name: "Reply",
-        components: {Like, EditReply},
+        components: {MarkAsBest, Like, EditReply},
         props: ['data', 'index'],
         data() {
             return {
                 editing: false,
-                beforeEditReplyBody: ''
+                beforeEditReplyBody: '',
+                marked: this.data.best_reply === this.data.id
             }
         },
 
@@ -81,6 +72,11 @@
             own() {
                 return User.own(this.data.user_id)
             },
+
+            questionOwner(){
+                return User.own(this.data.question_user)
+            },
+
             body(){
                 return this.data.reply
             }
@@ -88,6 +84,13 @@
 
         created() {
             this.listen()
+
+            Echo.channel('BestReplyChannel')
+                .listen('BestReplyEvent', (e) =>{
+                    if(this.data.id === e.id){
+                        e.type === 1 ? this.marked : ''
+                    }
+                })
         },
 
         methods: {

@@ -88,8 +88,11 @@
         methods:{
             create(){
                 axios.post('/api/question', this.form)
-                .then(res => this.$router.push(res.data.path))
-                .catch(error => this.errors = error.response.data.error)
+                .then(res => {
+                    this.$router.push(res.data.path)
+                    this.$toast.success('Question Created successfully', "Success", {timeout: 3000});
+                })
+                .catch(error => console.log(error.response.data.error))
             }
         },
 

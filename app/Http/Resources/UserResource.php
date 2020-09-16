@@ -18,7 +18,9 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'created' => $this->created_at->diffForHumans(),
-            'userCount' => $this->count()
+            'userCount' => $this->count(),
+            'questions' => QuestionResource::collection($this->question),
+            'replies' => ReplyResource::collection( $this->replies),
         ];
     }
 }

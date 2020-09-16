@@ -2,17 +2,17 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-import Login from "../components/Auth/Login";
-import Forum from "../components/forum/Forum";
-import Signup from "../components/Auth/Signup";
-import CreateQuestion from "../components/forum/CreateQuestion";
+const Login = () => import("../components/Auth/Login");
+const Forum = () => import("../components/forum/Forum");
+const Signup = () => import("../components/Auth/Signup");
+const CreateQuestion = () => import("../components/forum/CreateQuestion")
 import Logout from "../components/Auth/Logout";
-import ReadQuestion from "../components/forum/ReadQuestion";
+const ReadQuestion = () => import("../components/forum/ReadQuestion");
 import Category from "../components/category/Category";
 import Setting from "../components/user/Setting";
 import parallex from "../components/parallex";
-import AboutComponent from "../components/AboutComponent";
-import AdminDashboard from "../components/Admin/AdminDashboard";
+const AboutComponent = () => import("../components/AboutComponent");
+const AdminDashboard = () => import("../components/Admin/AdminDashboard")
 
 const routes = [
     {path: '/', component: parallex},

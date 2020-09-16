@@ -31,9 +31,6 @@
                         </li>
                     </ul>
                 </div>
-                <button type="button" class="tt-view-all" data-toggle="modal"
-                        data-target="#modalAdvancedSearch">Advanced Search
-                </button>
             </div>
         </form>
     </div>

@@ -12,6 +12,10 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 
 Vue.use( CKEditor );
 
+import VueIziToast from 'vue-izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+Vue.use(VueIziToast);
+
 // import md from 'marked'
 // window.md = md;
 

@@ -2,28 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18a06752-50a6-4680-8804-01c8cc3b5a5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/purifier.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/SearchComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ForumApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ForumApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/BestReplyEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AcceptAnswerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/BestReplyEventListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Policies/AnswerPolicy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Policies/QuestionPolicy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_14_225346_add_foreign_best_answer_id_to_question.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/votes/MarkAsBest.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/QuestionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/QuestionResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ReplyResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ReplyResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Model/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_26_200907_create_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_26_200907_create_questions_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/front.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/front.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Router/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Router/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ToolBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ToolBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/SearchComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SearchComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/forum/CreateQuestion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/forum/CreateQuestion.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/forum/EditQuestion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/forum/EditQuestion.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/forum/Forum.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/forum/Forum.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/forum/ShowQuestion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/forum/ShowQuestion.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/reply/CreateReply.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/reply/CreateReply.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/reply/EditReply.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/reply/EditReply.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/reply/Reply.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/reply/Reply.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +195,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../churchBlog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
@@ -257,7 +270,9 @@
       <workItem from="1599949385915" duration="15225000" />
       <workItem from="1599965423496" duration="6373000" />
       <workItem from="1599995029110" duration="3571000" />
-      <workItem from="1600081738726" duration="18752000" />
+      <workItem from="1600081738726" duration="23662000" />
+      <workItem from="1600126829073" duration="6118000" />
+      <workItem from="1600169857635" duration="23562000" />
     </task>
     <servers />
   </component>
@@ -286,10 +301,10 @@
     <state x="460" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1599175090384" />
     <state x="2610" y="296" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599695498891" />
     <state x="460" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.720@0.0.1280.720" timestamp="1600104411753" />
-    <state x="493" y="197" key="FileChooserDialogImpl" timestamp="1599959991723">
+    <state x="493" y="197" key="FileChooserDialogImpl" timestamp="1600123876475">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="493" y="197" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1599959991723" />
+    <state x="493" y="197" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1600123876475" />
     <state x="2660" y="295" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599345097708" />
     <state x="2381" y="183" key="SettingsEditor" timestamp="1599049083193">
       <screen x="1920" y="0" width="1920" height="1080" />

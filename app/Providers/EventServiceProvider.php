@@ -25,7 +25,11 @@ class EventServiceProvider extends ServiceProvider
 
         'App\Events\DeleteReplyEvent' => [
             'App\Listeners\DeleteReplyEventListener',
-        ]
+        ],
+
+        'App\Events\BestReplyEvent' => [
+            'App\Listeners\BestReplyEventListener',
+        ],
     ];
 
     /**
